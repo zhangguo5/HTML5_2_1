@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>淘水果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			
+			.oa-contact-name,
+			oa-contact-position {
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">淘水果</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">畅销水果</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">新货上架</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">收款</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">发货</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="tabbar" class="mui-control-content mui-active">
+
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-lhttp://127.0.0.1:8020/HTML5_2_1/d06.html#oop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/yuantiao.jpg">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/shuijiao.jpg">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/muwu.jpg">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/cbd.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/yuantiao.jpg">
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/shuijiao.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+				</div>
+
+				<ul class="mui-table-view mui-table-view-chevron" id="goodsList">
+
+				</ul>
+
+			</div>
+
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<p>
+					<label for="name">名称：</label>
+					<input type="text" id="name" value="" />
+				</p>
+				<p>
+					<label for="price">价格：</label>
+					<input type="text" id="price" value="" />
+				</p>
+				<p>
+					<input type="hidden" id="goodsId" />
+					<button id="btnInsert">添加</button>
+					<button id="btnUpdate">更新</button>
+				</p>
+			</div>
+			<div id="tabbar-with-contact" class="mui-control-content">
+				<div class="title">这是div模式选项卡中的第3个子页面，该页面展示一个通讯录示例.</div>
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-cell">
+							<div class="oa-contact-cell mui-table">
+								<div class="oa-contact-avatar mui-table-cell">
+									<img src="images/60x60.gif" />
+								</div>
+								<div class="oa-contact-content mui-table-cell">
+									<div class="mui-clearfix">
+										<h4 class="oa-contact-name">叶文洁</h4>
+										<span class="oa-contact-position mui-h6">董事长</span>
+									</div>
+									<p class="oa-contact-email mui-h6">
+										yewenjie@sina.com
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-cell">
+							<div class="oa-contact-cell mui-table">
+								<div class="oa-contact-avatar mui-table-cell">
+									<img src="images/60x60.gif" />
+								</div>
+								<div class="oa-contact-content mui-table-cell">
+									<div class="mui-clearfix">
+										<h4 class="oa-contact-name">艾AA</h4>
+										<span class="oa-contact-position mui-h6">总经理</span>
+									</div>
+									<p class="oa-contact-email mui-h6">
+										aaa@163.com
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-cell">
+							<div class="oa-contact-cell mui-table">
+								<div class="oa-contact-avatar mui-table-cell">
+									<img src="images/60x60.gif" />
+								</div>
+								<div class="oa-contact-content mui-table-cell">
+									<div class="mui-clearfix">
+										<h4 class="oa-contact-name">罗辑</h4>
+										<span class="oa-contact-position mui-h6">员工</span>
+									</div>
+									<p class="oa-contact-email mui-h6">
+										luoji@126.com
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-cell">
+							<div class="oa-contact-cell mui-table">
+								<div class="oa-contact-avatar mui-table-cell">
+									<img src="images/60x60.gif" />
+								</div>
+								<div class="oa-contact-content mui-table-cell">
+									<div class="mui-clearfix">
+										<h4 class="oa-contact-name">云天明</h4>
+										<span class="oa-contact-position mui-h6">员工</span>
+									</div>
+									<p class="oa-contact-email mui-h6">
+										ytm@163.com
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-cell">
+							<div class="oa-contact-cell mui-table">
+								<div class="oa-contact-avatar mui-table-cell">
+									<img src="images/60x60.gif" />
+								</div>
+								<div class="oa-contact-content mui-table-cell">
+									<div class="mui-clearfix">
+										<h4 class="oa-contact-name">史强</h4>
+										<span class="oa-contact-position mui-h6">员工</span>
+									</div>
+									<p class="oa-contact-email mui-h6">
+										shiqiang@gmail.com
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div id="tabbar-with-map" class="mui-control-content">
+				<div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							新消息通知
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							隐私
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							通用
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view" style="margin-top: 25px;">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							关于mui
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view" style="margin-top: 25px;">
+					<li class="mui-table-view-cell">
+						<a style="text-align: center;color: #FF3B30;">
+							退出登录
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mui.min.js"></script>
+	<script>
+		//定义当前应用的对象
+		var dbApp = {
+			//打开数据库
+			openDb: function() {
+				//创建名称为products，版本为1.0,描述为产品数据库，3M大小的数据库
+				this.db = openDatabase("products", 1.0, "产品数据库", 1024 * 1024 * 3, function() {
+					this.log("创建或打开数据库完成");
+				});
+			},
+			//初始化
+			init: function() {
+				//打开或创建数据库
+				this.openDb();
+				//绑定事件
+				this.bindEvent();
+				//展示数据
+				this.select();
+				this.log("初始化完成");
+			},
+			//绑定事件
+			bindEvent: function() {
+				//添加事件
+				$("#btnInsert").click(this.insert);
+				$("#btnUpdate").click(this.update);
+				$("#btnCreateTable").click(this.createTable);
+				$("#btnDropTable").click(this.dropTable);
+			},
+			//显示消息
+			log: function(info) {
+				mui.toast(info);
+			},
+			//执行sql的通用方法 result.rowsAffected 影响行数
+			//callback执行成功时的回调方法
+			exeSql: function(sql, title, param, callback) {
+				title = title || "操作";
+				this.db.transaction(function(tx) {
+					tx.executeSql(
+						sql, param || [],
+						function(tx, result) {
+							dbApp.log(title + '成功');
+							if(callback) { //如果有参数
+								callback(result);
+							}
+						},
+						function(tx, error) {
+							dbApp.log(title + '失败' + error.message);
+						});
+				});
+			},
+			//创建表
+			createTable: function() {
+				dbApp.exeSql("create table IF not EXISTS goods(id integer primary key autoincrement,name text not null,price double)", "创建表");
+			},
+			//删除表
+			dropTable: function() {
+				dbApp.exeSql("drop table IF EXISTS goods", "删除表");
+			},
+			//展示，加载数据
+			select: function() {
+				dbApp.exeSql("select id,name,price from goods", "查询", [], function(result) {
+					//将表格中tr索引大于0的元素删除
+					$("#goodsList li").remove();
+					for(var i = 0; i < result.rows.length; i++) {
+						var tr = $("<li class='mui-table-view-cell mui-media'><a class='mui-navigate-right'><img class='mui-media-object mui-pull-left' src='images/cbd.jpg'><div class='mui-media-body'>" + result.rows.item(i)["name"] + "<p class='mui-ellipsis'>新鲜好吃的水果，仅售：" + result.rows.item(i)["price"] + "/斤</p></div></a></li>")
+						tr.appendTo("#goodsList");
+					}
+					mui.init({
+						swipeBack: true //启用右滑关闭功能
+					});
+				});
+			},
+			//插入数据
+			insert: function() {
+				//如果insert方法被绑定为事件，则this表示事件发生的对象
+				dbApp.exeSql("insert into goods(name,price) values(?,?)", "添加", [$("#name").val(), $("#price").val()], function() {
+					dbApp.select();
+				});
+			},
+			//删除 
+			del: function(id, link) {
+				dbApp.exeSql("delete from goods where id=?", "删除", [id], function(result) {
+					//查找a标签最近的一个tr父元素，移除
+					$(link).closest("tr").remove();
+				});
+			},
+			//编辑
+			edit: function(id) {
+				dbApp.exeSql("select id,name,price from goods where id=?", "编辑", [id], function(result) {
+					$("#name").val(result.rows.item(0)["name"]);
+					$("#price").val(result.rows.item(0)["price"]);
+					$("#goodsId").val(result.rows.item(0)["id"]);
+					dbApp.log("修改后请保存");
+				});
+			},
+			//更新
+			update: function() {
+				if($("#goodsId").val()) {
+					dbApp.exeSql("update goods set name=?,price=?  where id=?", "更新", [$("#name").val(), $("#price").val(), $("#goodsId").val()], function(result) {
+						dbApp.select();
+						$("#goodsId").val("");
+					});
+				} else {
+					dbApp.log("请选择要更新的记录 ");
+				}
+			}
+		};
+
+		dbApp.init();
+	</script>
+
+</html>

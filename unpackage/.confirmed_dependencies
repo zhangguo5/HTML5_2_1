@@ -1,0 +1,22 @@
+{
+  "d05.html": {
+    "resources": [
+      "js/jquery-1.11.3.min.js"
+    ],
+    "refer": []
+  },
+  "d06.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "js/jquery-1.11.3.min.js",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "js/mui.min.js",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "images/60x60.gif",
+      "css/mui.min.css",
+      "images/shuijiao.jpg"
+    ]
+  }
+}

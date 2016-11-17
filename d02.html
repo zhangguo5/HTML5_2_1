@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获得localStorage的值</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log(localStorage.price);
+			
+		    window.addEventListener("storage",function(obj){
+				alert(obj.oldValue+","+obj.newValue+","+obj.url);
+			},true);
+		</script>
+	</body>
+</html>

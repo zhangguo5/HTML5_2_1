@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获得sessionStorage的值</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log(sessionStorage.price);
+			
+			window.addEventListener("storage",function(oldV,newV,url){
+				alert(oldV+","+newV+","+url);
+			},true);
+		</script>
+		
+	</body>
+</html>

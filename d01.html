@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>localStorage 本地存储</title>
+	</head>
+	<body>
+		<h2>localStorage 本地存储</h2>
+		<button onclick="add_click()">添加</button>
+		<button onclick="get_click()">取值</button>
+		<button onclick="update_click()">修改</button>
+		<button onclick="delete_click()">删除</button>
+		<h3 id="msg"></h3>
+		<a href="d02.html">d02.html</a>
+		<script type="text/javascript">
+		    var msg=document.getElementById("msg");
+		    //添加
+			function	add_click()
+			{
+				//向本地存储中添加一个名为name,值为"手机"的key-value对象
+				localStorage.setItem("name","手机");
+				//添加办法2
+				localStorage["price"]=999.5;
+				//添加办法3
+				localStorage.amount=1788;
+			}
+			//取值
+			function get_click()
+			{
+				msg.innerHTML+=localStorage.getItem("name")+"<br/>";
+				msg.innerHTML+=localStorage["price"]+"<br/>";
+				msg.innerHTML+=localStorage.amount+"<br/>";
+			}
+			//修改
+			function update_click()
+			{
+				//如果不存在就添加，如果存在就修改
+				localStorage.setItem("name","iPhone 8 plus手机");
+				//修改办法2
+				localStorage["price"]=parseFloat(localStorage["price"])+899.5;
+				//修改办法3
+				localStorage.amount=100;
+			}
+			//删除
+			function delete_click()
+			{
+			   //根据键删除
+			   //localStorage.removeItem("price");
+			   localStorage.clear();
+			}
+		</script>
+	</body>
+</html>

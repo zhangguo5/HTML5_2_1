@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var stuDB = openDatabase("stuDB", "1.0", "学生信息数据库", 1024 * 1024 * 5, function() {
+				console.log("数据库创建成功！");
+			});
+			stuDB.transaction(function(tx) {
+				//执行事务操作语句
+				tx.executeSql("create table if not exists stuInfo(id text primary key,name text)", [], function() {
+					console.log("sql执行成功！");
+				}, function(tx, error) {
+					console.log("执行失败" + error.message);
+				})
+			});
+			$(function() {
+				$("#btnAdd").click(function() {
+					stuDB.transaction(function(tx) {
+						//执行事务操作语句
+						tx.executeSql("insert into stuInfo(id,name) values(?,?)", [$("#txtId").val(), $("#txtName").val()], function() {
+							console.log("sql执行成功！");
+							renderTable();
+						}, function(tx, error) {
+							console.log("执行失败" + error.message);
+						});
+					});
+				});
+				
+				$("#btnUpdate").click(btnUpdate);
+				
+				renderTable();
+			});
+
+			function renderTable() {
+				stuDB.transaction(function(tx) {
+					tx.executeSql("select id,name from stuInfo", [], function(tx, result) {
+						$("#tab1 tr").not(".remain").remove();
+						for (var i = 0; i < result.rows.length; i++) {
+							var tr = $(" <tr/> ");
+							tr.append(" <td> " + result.rows.item(i)["id"] + "</td>");
+							tr.append("<td>" + result.rows.item(i)["name"] + "</td > ");
+							tr.append(" <td> <a href='#' onclick='delItem(" + result.rows.item(i)["id"] + ")'> 删除 </a><a href='#' onclick='editItem(" + result.rows.item(i)["id"] + ")'>编辑</a> </td>");
+							tr.insertBefore($("#tab1 tr").last());
+						}
+					}, function(tx, error) {
+						console.log(error.message);
+					});
+				});
+			}
+
+			function delItem(id) {
+				if (confirm("确定要删除吗？")) {
+					stuDB.transaction(function(tx) {
+						tx.executeSql("delete from stuInfo where id='' or id='"+id+"'", [], function(tx, result) {
+							renderTable();
+						}, function(tx, error) {
+							console.log(error.message);
+						});
+					});
+				}
+			}
+
+			function editItem(id) {
+				stuDB.transaction(function(tx) {
+					tx.executeSql("select id,name from stuInfo where id='" + id + "'", [], function(tx, result) {
+						$("#txtId").val(result.rows.item(0)["id"]);
+						$("#txtName").val(result.rows.item(0)["name"]);
+					}, function(tx, error) {
+						console.log(error.message);
+					});
+				});
+			}
+
+			function btnUpdate() {
+				stuDB.transaction(function(tx) {
+					tx.executeSql("update stuInfo set name=? where id=?", [$("#txtName").val(),$("#txtId").val()], function(tx, result) {
+						renderTable();
+					}, function(tx, error) {
+						console.log(error.message);
+					});
+				});
+			}
+		</script>
+		<title>WebSQLDatabase离线数据库</title>
+	</head>
+
+	<body>
+		<h2>WebSQLDatabase离线数据库</h2>
+		<table border="1" cellspacing="0" cellpadding="0" width="100%" id="tab1">
+			<tr class="remain">
+				<th>学号</th>
+				<th>姓名</th>
+				<th>操作</th>
+			</tr>
+			<tr class="remain">
+				<td>
+					<input type="text" id="txtId" value="" placeholder="请输入学号" required="required" />
+				</td>
+				<td>
+					<input type="text" id="txtName" value="" placeholder="请输入姓名" required="required" />
+				</td>
+				<td>
+					<input type="button" id="btnAdd" value="添加" />
+					<input type="button" id="btnUpdate" value="更新" />
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>
